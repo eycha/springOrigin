@@ -5,7 +5,8 @@ public class BClazz {
     private SocketClient socketClient;
 
     public BClazz() {
-        this.socketClient = SocketClient.getInstance();
+        //this.socketClient = SocketClient.getInstance();
+        this.socketClient = new socketClient();
 
     }
 
