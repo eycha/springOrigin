@@ -1,7 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.adapter.Electronic110V;
-import com.example.demo.adapter.HairDryer;
+import com.example.demo.adapter.*;
 import com.example.demo.singleTon.AClazz;
 import com.example.demo.singleTon.BClazz;
 import com.example.demo.singleTon.SocketClient;
@@ -24,6 +23,15 @@ public class DemoApplication {
      */
         HairDryer hairDryer = new HairDryer();
         connect(hairDryer);
+
+        Cleaner cleaner = new Cleaner();
+        Electronic110V adapter = new SocketAdapter(cleaner);
+
+        connect(adapter);
+
+        AirConditioner airConditioner = new AirConditioner();
+        Electronic110V airAdapter = new SocketAdapter(airConditioner);
+        connect(airAdapter);
     }
     public static void connect(Electronic110V electronic110V) {
         electronic110V.powerOn();
