@@ -1,6 +1,9 @@
 package com.example.demo;
 
 import com.example.demo.adapter.*;
+import com.example.demo.proxy.Browser;
+import com.example.demo.proxy.BrowserProxy;
+import com.example.demo.proxy.IBrowser;
 import com.example.demo.singleTon.AClazz;
 import com.example.demo.singleTon.BClazz;
 import com.example.demo.singleTon.SocketClient;
@@ -20,7 +23,7 @@ public class DemoApplication {
         SocketClient aClient = aClazz.getSocketClient();
         SocketClient bClient = bClazz.getSocketClient();
 
-     */
+
         HairDryer hairDryer = new HairDryer();
         connect(hairDryer);
 
@@ -32,6 +35,22 @@ public class DemoApplication {
         AirConditioner airConditioner = new AirConditioner();
         Electronic110V airAdapter = new SocketAdapter(airConditioner);
         connect(airAdapter);
+
+
+
+        Browser browser = new Browser("www.naver.com");
+        browser.show();
+        browser.show();
+        browser.show();
+
+        */
+
+        IBrowser browser = new BrowserProxy("www.naver.com");
+        browser.show();
+        browser.show();
+        browser.show();
+        browser.show();
+
     }
     public static void connect(Electronic110V electronic110V) {
         electronic110V.powerOn();
