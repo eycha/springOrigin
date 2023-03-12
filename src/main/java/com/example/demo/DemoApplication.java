@@ -2,6 +2,8 @@ package com.example.demo;
 
 import com.example.demo.adapter.*;
 import com.example.demo.aop.AopBrowser;
+import com.example.demo.decorator.Audi;
+import com.example.demo.decorator.ICar;
 import com.example.demo.proxy.Browser;
 import com.example.demo.proxy.BrowserProxy;
 import com.example.demo.proxy.IBrowser;
@@ -53,7 +55,7 @@ public class DemoApplication {
         browser.show();
         browser.show();
         browser.show();
-    */
+
         AtomicLong start = new AtomicLong();
         AtomicLong end = new AtomicLong();
 
@@ -66,14 +68,18 @@ public class DemoApplication {
                     long now = System.currentTimeMillis();
                     end.set(now - start.get());
                 }
+        */
 
-        );
-
+        /*
         aopBrowser.show();
         System.out.println("loading time :"+ end.get());
 
         aopBrowser.show();
         System.out.println("loadung time :"+ end.get());
+        */
 
+
+        ICar audi = new Audi(1000);
+        audi.showPrice();
     }
 }
