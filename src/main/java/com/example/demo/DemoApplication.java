@@ -2,8 +2,7 @@ package com.example.demo;
 
 import com.example.demo.adapter.*;
 import com.example.demo.aop.AopBrowser;
-import com.example.demo.decorator.Audi;
-import com.example.demo.decorator.ICar;
+import com.example.demo.decorator.*;
 import com.example.demo.proxy.Browser;
 import com.example.demo.proxy.BrowserProxy;
 import com.example.demo.proxy.IBrowser;
@@ -81,5 +80,15 @@ public class DemoApplication {
 
         ICar audi = new Audi(1000);
         audi.showPrice();
+
+        ICar audi3 = new A3(audi, "A3");
+        audi3.showPrice();
+
+        ICar audi4 = new A4(audi, "A4");
+        audi4.showPrice();
+
+        ICar audi5 = new A5(audi, "A5");
+        audi5.showPrice();
+
     }
 }
