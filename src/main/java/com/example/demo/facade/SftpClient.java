@@ -19,4 +19,22 @@ public class SftpClient {
         this.reader = new Reader(fileName);
         this.writer = new Writer(fileName);
     }
+    public void connect() {
+        ftp.connect();
+        ftp.moveDirectory();
+        writer.fileConnect();
+        reader.fileConnect();
+
+    }
+    public void disConnect() {
+        writer.fileDisconnect();
+        reader.fileDisconnect();
+        ftp.disConnect();
+    }
+    public void read() {
+        reader.fileRead();
+    }
+    public void writer() {
+        writer.write();
+    }
 }

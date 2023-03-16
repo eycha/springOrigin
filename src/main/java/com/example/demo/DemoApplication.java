@@ -5,6 +5,7 @@ import com.example.demo.aop.AopBrowser;
 import com.example.demo.decorator.*;
 import com.example.demo.facade.Ftp;
 import com.example.demo.facade.Reader;
+import com.example.demo.facade.SftpClient;
 import com.example.demo.facade.Writer;
 import com.example.demo.observer.Button;
 import com.example.demo.observer.IButtonListener;
@@ -52,6 +53,13 @@ public class DemoApplication {
         reader.fileDisconnect();
         writer.fileDisconnect();
         ftpClient.disConnect();
+
+        SftpClient sftpClient = new SftpClient("www.foo.co.kr",22,"home/etc","text.tmp");
+        sftpClient.connect();
+        sftpClient.writer();
+        sftpClient.read();
+        sftpClient.disConnect();
+
 
 
 
